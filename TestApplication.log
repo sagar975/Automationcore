@@ -1,0 +1,16 @@
+2024-01-20 00:07:27,139  INFO [main] FileIO:68 - report path is - C:\Users\Dell\eclipse-workspace\CoreSetup//reports//
+2024-01-20 00:07:27,146  INFO [main] TestProjectListener:43 - *********** file path for report is *********** : C:\Users\Dell\eclipse-workspace\CoreSetup//reports////AutomationReport.html
+2024-01-20 00:07:27,568  INFO [main] TestProjectListener:46 - execution of test suite started
+2024-01-20 00:07:28,234  INFO [main] TestProjectListener:92 - extent report ready and execution completed
+2024-01-20 00:59:33,607  INFO [main] FileIO:68 - report path is - C:\Users\Dell\eclipse-workspace\CoreSetup//reports//
+2024-01-20 00:59:33,616  INFO [main] TestProjectListener:43 - *********** file path for report is *********** : C:\Users\Dell\eclipse-workspace\CoreSetup//reports////AutomationReport.html
+2024-01-20 00:59:33,972  INFO [main] TestProjectListener:46 - execution of test suite started
+2024-01-20 00:59:34,759  INFO [main] TestProjectListener:92 - extent report ready and execution completed
+2024-01-20 02:07:20,743  INFO [main] FileIO:68 - report path is - C:\Users\Dell\eclipse-workspace\CoreSetup//reports//
+2024-01-20 02:07:20,791  INFO [main] TestProjectListener:43 - *********** file path for report is *********** : C:\Users\Dell\eclipse-workspace\CoreSetup//reports////AutomationReport.html
+2024-01-20 02:07:21,139  INFO [main] TestProjectListener:46 - execution of test suite started
+2024-01-20 02:07:21,726  INFO [main] TestProjectListener:92 - extent report ready and execution completed
+2024-01-20 03:18:48,875  INFO [main] FileIO:68 - report path is - C:\Users\Dell\eclipse-workspace\CoreSetup//reports//
+2024-01-20 03:18:48,886  INFO [main] TestProjectListener:43 - *********** file path for report is *********** : C:\Users\Dell\eclipse-workspace\CoreSetup//reports////AutomationReport.html
+2024-01-20 03:18:49,241  INFO [main] TestProjectListener:46 - execution of test suite started
+2024-01-20 03:18:49,815  INFO [main] TestProjectListener:92 - extent report ready and execution completed
