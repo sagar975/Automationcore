@@ -2,6 +2,7 @@ package com.testproject.core.automation;
 
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -11,6 +12,8 @@ import com.testproject.core.utils.AutomationAssertion;
 public class AutomationContextManager {
 
 	private static ExtentReports EXTENT;
+
+	private static final Logger log = Logger.getLogger(AutomationContextManager.class);
 
 	private static ThreadLocal<ExtentTest> EXTENT_TEST_CASE_THREADLOCAL = new InheritableThreadLocal<ExtentTest>();
 
@@ -35,7 +38,6 @@ public class AutomationContextManager {
 	}
 
 	public static ExtentTest startMethod(String methodName, String className, String description) {
-
 		ExtentTest test = getTest().createNode(methodName, description);
 		EXTENT_TEST_CASE_THREADLOCAL.set(test);
 		AutomationAssertion assertion = new AutomationAssertion();
@@ -61,6 +63,14 @@ public class AutomationContextManager {
 
 	public static synchronized void flushReport() {
 		EXTENT.flush();
+	}
+
+	public static ExtentTest startTest(String testName, String description) {
+
+		ExtentTest test = EXTENT.createTest(testName, description);
+		EXTENT_TEST_CASE_THREADLOCAL.set(test);
+		return test;
+
 	}
 
 }

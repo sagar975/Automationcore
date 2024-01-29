@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.IInvokedMethod;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -39,7 +40,7 @@ public class TestProjectListener extends AutomationListner {
 		} finally {
 			is = null;
 		}
-		String fileName = FileIO.getReportPath();
+		String fileName = FileIO.getReportPath2();
 		logger.info("*********** file path for report is *********** : " + fileName);
 		ExtentReports extentReports = ExtentManager.createInstance(fileName);
 		AutomationContextManager.setExtentReport(extentReports);
@@ -92,4 +93,12 @@ public class TestProjectListener extends AutomationListner {
 		logger.info("extent report ready and execution completed");
 
 	}
+	
+	public void onStart(ITestContext testContext) {
+		AutomationContextManager.startTest(testContext.getCurrentXmlTest().getName(), "");
+		logger.info("TestNG Test is started : " + testContext.getCurrentXmlTest().getName()+ " : is  started");
+		
+	}
+	
+	
 }
