@@ -236,7 +236,7 @@ public class SeleniumWebDriverFactory {
 		if (webDriverOptions.platform == null)
 			webDriverOptions.platform = getSystemProperty("platform");
 		if (webDriverOptions.downloadDir == null)
-			webDriverOptions.downloadDir = getSystemProperty("");
+			webDriverOptions.downloadDir = getSystemProperty(Constants.SYS_PROP_DOWNLOAD_DIR);
 		if (webDriverOptions.httpProxy == null)
 			webDriverOptions.httpProxy = getSystemProperty(Constants.SYS_PROP_HTTP_PROXY);
 		if (webDriverOptions.sslProxy == null)

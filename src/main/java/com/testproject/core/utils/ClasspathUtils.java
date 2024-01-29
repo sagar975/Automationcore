@@ -72,7 +72,8 @@ public class ClasspathUtils {
 
 	public static InputStream loadFileFromClasspathAsInputString(String fileName) {
 
-		log.info(fileName);
+		log.info("looking for this file : " +fileName);
+
 
 		if (fileName != null && !fileName.isEmpty()) {
 

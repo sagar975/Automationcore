@@ -47,7 +47,11 @@ public class FileIO {
 
 	}
 
-	public static String getReportPath() {
+	public static String getReportPath2() {
+		
+		/*
+		 * currently not in use added new version below to archive  html extent reports
+		 */
 		String reportPath;
 		String htmlArchiveFilePath;
 		String logfolderpath;
@@ -66,7 +70,7 @@ public class FileIO {
 
 		}
 		log.info("report path is - " + reportPath);
-		String finalReportfilename = reportPath + "//" + Constants.AUTOMATION_EXTENT_REPORT_NAME_PREFIX
+		String finalReportfilename = reportPath+"\\reports\\" +Constants.AUTOMATION_EXTENT_REPORT_NAME_PREFIX
 				+ Constants.EXTENT_REPORT_NAME_SUFFIX;
 
 		// move the results file to archive folder
@@ -78,11 +82,12 @@ public class FileIO {
 		if (System.getProperty("ReportFolderPath") == null
 				|| System.getProperty("ReportFolderPath").equalsIgnoreCase("")) {
 			htmlArchiveFilePath = Constants.AUTOMATION_REPORT_ARCHIVE_PATH;
+			htmlArchiveFilePath+="\\reports\\Archive\\";
 			createDirs(htmlArchiveFilePath);
 		} else {
-			htmlArchiveFilePath = System.getProperty("ReportFolderPath") + "//" + "Archive" + "//";
-			logfolderpath = System.getProperty("ReportFolderPath") + "//" + "logs" + "//";
-			screenshotfolderpath = System.getProperty("ReportFolderPath") + "//" + "screenshots" + "//";
+			htmlArchiveFilePath = System.getProperty("ReportFolderPath") +"Archive" + "\\";
+			logfolderpath = System.getProperty("ReportFolderPath") + "\\" + "logs" + "\\";
+			screenshotfolderpath = System.getProperty("ReportFolderPath") + "\\" + "screenshots" + "\\";
 			createDirs(htmlArchiveFilePath);
 			createDirs(logfolderpath);
 			createDirs(screenshotfolderpath);
@@ -93,6 +98,41 @@ public class FileIO {
 		return finalReportfilename;
 
 	}
+	
+	public static String getReportPath() {
+		String reportPath;
+		if(System.getProperty("ReportFolderPath")!=null &&System.getProperty("ReportFolderPath").equalsIgnoreCase("") ) {
+			reportPath = System.getProperty("ReportFolderPath");
+			createDirs(reportPath);
+		}
+		else {
+			reportPath = Constants.AUTOMATION_REPORT_PATH;
+			reportPath+="\\reports\\";
+			createDirs(reportPath);
+		}
+		log.info("report path is : " + reportPath);
+		String htmlArchiveFileName =getFileCratedDateTime(reportPath);
+		String htmlArchiveFilePath;
+		if(System.getProperty("ReportFolderPath")!=null && !System.getProperty("ReportFolderPath").equalsIgnoreCase("")) {
+			htmlArchiveFilePath = System.getProperty("ReportFolderPath") + "\\" + "Archive" + "\\";
+			String logfolderpath = System.getProperty("ReportFolderPath") + "\\" + "logs" + "\\";
+			String screenshotfolderpath = System.getProperty("ReportFolderPath") + "\\" + "screenshots" + "\\";
+			createDirs(htmlArchiveFilePath);
+			createDirs(logfolderpath);
+			createDirs(screenshotfolderpath);
+
+		}
+		else {
+			htmlArchiveFilePath=Constants.AUTOMATION_REPORT_ARCHIVE_PATH;
+			htmlArchiveFilePath+="";
+			
+			createDirs(htmlArchiveFilePath);
+		}
+			
+	FileIO.moveFile(new File(htmlArchiveFileName), new File(htmlArchiveFilePath + htmlArchiveFileName));
+		return reportPath;
+				
+	}
 
 	public static void moveFile(File source, File destination) {
 		try {
@@ -100,7 +140,7 @@ public class FileIO {
 			if (source.exists()) {
 				if (!destination.exists()) {
 
-					FileUtils.moveDirectory(source, destination);
+					FileUtils.moveFile(source, destination);
 
 				}
 			}
