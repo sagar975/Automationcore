@@ -81,10 +81,15 @@ public class TestProjectListener extends AutomationListner {
 			eventDriver.register(handler);
 
 			AutomationContextManager.setWebDriver(eventDriver);
-
 			AutomationContextManager.getMethod().log(Status.PASS,
 					"Test Method Started->" + method.getTestMethod().getMethodName());
 		}
+
+	}
+
+	public void afterInvocation(IInvokedMethod method, ITestResult result) {
+
+		AutomationContextManager.getDriver().quit();
 
 	}
 
@@ -93,12 +98,11 @@ public class TestProjectListener extends AutomationListner {
 		logger.info("extent report ready and execution completed");
 
 	}
-	
+
 	public void onStart(ITestContext testContext) {
 		AutomationContextManager.startTest(testContext.getCurrentXmlTest().getName(), "");
-		logger.info("TestNG Test is started : " + testContext.getCurrentXmlTest().getName()+ " : is  started");
-		
+		logger.info("TestNG Test is started : " + testContext.getCurrentXmlTest().getName() + " : is  started");
+
 	}
-	
-	
+
 }

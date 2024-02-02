@@ -1,0 +1,6 @@
+/target/
+/reports/
+/.settings/
+/test-output/
+/.DS_Store
+/.idea
