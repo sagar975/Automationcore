@@ -39,7 +39,7 @@ public class AutomationContextManager {
 
 	public static ExtentTest startMethod(String methodName, String className, String description) {
 		ExtentTest test = getTest().createNode(methodName, description);
-		EXTENT_TEST_CASE_THREADLOCAL.set(test);
+		EXTENT_TEST_METHOD_THREADLOCAL.set(test);
 		AutomationAssertion assertion = new AutomationAssertion();
 		ASSERT_THREADLOCAL.set(assertion);
 		return test;
@@ -58,7 +58,7 @@ public class AutomationContextManager {
 	}
 
 	public static ExtentTest getMethod() {
-		return EXTENT_TEST_METHOD_THREADLOCAL.get();
+		return (ExtentTest) EXTENT_TEST_METHOD_THREADLOCAL.get();
 	}
 
 	public static synchronized void flushReport() {

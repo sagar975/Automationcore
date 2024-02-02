@@ -196,6 +196,11 @@ public class SeleniumWebDriverFactory {
 			if (BROWSER.equalsIgnoreCase(Constants.BROWSER_IE)) {
 				driver = new InternetExplorerDriver(ieOptions);
 			} else if (BROWSER.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
+				chromeOptions.setCapability("browserName", "chrome");
+				chromeOptions.setPlatformName(PLATFORM.toString());
+				chromeOptions.setAcceptInsecureCerts(true);
+				chromeOptions.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.IGNORE);
+				chromeOptions.addArguments("--remote-allow-origins=*");
 				driver = new ChromeDriver(chromeOptions);
 			}
 
