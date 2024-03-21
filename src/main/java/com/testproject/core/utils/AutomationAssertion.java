@@ -72,9 +72,10 @@ public class AutomationAssertion {
 
 			File screenShotSource = (File) ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss_a");
-			getIncrCounter();
-			String fileName = sdf.format(new Date());
-			FileUtils.copyFile(screenShotSource, new File(fileName));
+			int var10000=getIncrCounter();
+			String fileName = "screenshots/Screenshot_"+var10000+sdf.format(new Date()) +".jpeg";
+			String fileNameWReports = "reports/"+fileName;
+			FileUtils.copyFile(screenShotSource, new File(fileNameWReports));
 			return fileName;
 
 		}

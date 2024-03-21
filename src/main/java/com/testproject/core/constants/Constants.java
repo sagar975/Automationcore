@@ -14,6 +14,9 @@ public interface Constants {
    public static final String SYS_PROP_NO_PROXY = "selenium.no.proxy";
    public static final String AUTOMATION_REPORT_PATH = System.getProperty("user.dir");
    public static final String AUTOMATION_REPORT_ARCHIVE_PATH = System.getProperty("user.dir");
+   public static final String AUTOMATION_SCREENSHOT_PATH_PREEND="reports/";
+   public static final String AUTOMATION_SCREENSHOT_PATH="screenshots/";
+   
    
    
 
